@@ -125,9 +125,11 @@ void TuringMachine::display_info() {
     V_TRANSITION v_transition = get_transition();
     std::cout << "\x1B[3A";
     std::cout << "\x1B[0G\e[K";
-    std::cout << "State=" << m_current_state << ", Symbol=" << m_current_symbol << ", Transition=";
-    print_tuple(v_transition);
-    std::cout << ", running=" << m_running;
+    std::cout << "State=" << m_current_state << ", Symbol=" << m_current_symbol;
+    if (std::get<2>(v_transition).substr(0,4) != "halt") {
+        std::cout << ", Transition=";
+        print_tuple(v_transition);
+    }
     std::cout << "\n\x1B[0G\e[K";
     display_tape();
 }
