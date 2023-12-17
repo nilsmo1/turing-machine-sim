@@ -1,5 +1,4 @@
-# turing-machine-sim
-A Turing machine simulator made in C++.
+# A Turing machine simulator made in C++.
 
 ## Quick start
 Clone the repository and create a config file for the transition function $\delta$ of your desired Turing machine.
