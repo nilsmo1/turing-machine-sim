@@ -1,5 +1,4 @@
 #include "TuringMachine.h"
-#include <cstdio>
 #include <fstream>
 #include <cctype>
 #include <iostream>
@@ -9,7 +8,6 @@
 #include <tuple>
 #include <sstream>
 #include <vector>
-#include <unistd.h>
 
 
 void print_tuple(K_TRANSITION t) {
