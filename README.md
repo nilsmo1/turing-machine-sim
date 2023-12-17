@@ -34,4 +34,9 @@ make
 ./turing <config file> <input string>
 ```
 
-This will run the Turing machine and display information about the state it is in.
+This will run the Turing machine and display information about the state it is in. It might look something like this:
+
+```
+State=s4, Symbol=1, Transition=1 L s4, running=1
+Tape X11<u>1</u>0X110
+```
