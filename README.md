@@ -37,7 +37,7 @@ make
 This will run the Turing machine and display information about the state it is in. It might look something like this:
 
 ```
-State=s4, Symbol=1, Transition=1 L s4, running=1
+State=s4, Symbol=1, Transition=1 L s4
 Tape X11̲̲1̲̲0X110
 ```
 
