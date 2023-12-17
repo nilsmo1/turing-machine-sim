@@ -38,5 +38,6 @@ This will run the Turing machine and display information about the state it is i
 
 ```
 State=s4, Symbol=1, Transition=1 L s4, running=1
-Tape X111̲0X110
+Tape X11̲̲1̲̲0X110
 ```
+
