@@ -32,7 +32,7 @@ public:
         std::cout << "\nOutput tape=";
         for (char c : m_tape)
             std::cout << c;
-        std::cout << "\x1B[?25h\n\n";
+        std::cout << "\x1B[?25h\nFinal state=" << m_current_state << '\n';
     };
 
     void transition_from_stringstream(std::string);

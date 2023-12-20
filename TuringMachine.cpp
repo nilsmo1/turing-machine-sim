@@ -160,7 +160,7 @@ void TuringMachine::run(bool run_type) {
     read_transition_function();
     get_tape_symbol();
     m_running = true;
-    std::cout << "\n\n";
+    std::cout << "\n\n\n";
     while (m_running) {
         step();
         if (!m_running)
