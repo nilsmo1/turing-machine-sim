@@ -64,6 +64,7 @@ void TuringMachine::read_transition_function() {
 void TuringMachine::read_tape(std::string sequence) {
     for (char c : sequence) {
         m_tape.push_back(c);
+        m_input_tape.push_back(c);
         m_tape_length++;
     }
 }
@@ -129,6 +130,16 @@ void TuringMachine::display_info() {
     display_tape();
 }
 
+
+std::vector<char> TuringMachine::get_input_tape() {
+    return m_input_tape;
+}
+
+std::vector<char> TuringMachine::get_tape() {
+    return m_tape;
+}
+
+
 void TuringMachine::step() {
     get_tape_symbol();
     V_TRANSITION v_transition = get_transition();
@@ -156,5 +167,7 @@ void TuringMachine::run(bool run_type) {
             break;
         if (!run_type)
             getchar();
+        else
+         std::cout << '\n';
     } display_info();
 }

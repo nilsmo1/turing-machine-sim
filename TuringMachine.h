@@ -14,6 +14,7 @@ class TuringMachine {
 private:
     std::map<K_TRANSITION, V_TRANSITION> m_transition_function;
     std::vector<char> m_tape;
+    std::vector<char> m_input_tape;
     std::string m_current_state;
     int m_tape_head{};
     int m_tape_length{};
@@ -25,7 +26,7 @@ public:
     TuringMachine(std::string file_name) { m_file_name = file_name; };
     ~TuringMachine() { 
         m_transition_function.clear();
-        std::cout << "\x1B[?25h";
+        std::cout << "\x1B[?25h\n";
     };
 
     void transition_from_stringstream(std::string);
@@ -37,7 +38,8 @@ public:
     void write_tape(char);
     void display_tape();
     void display_info();
+    std::vector<char> get_input_tape();
+    std::vector<char> get_tape();
     void step();
     void run(bool);
-
 };
