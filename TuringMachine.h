@@ -26,7 +26,13 @@ public:
     TuringMachine(std::string file_name) { m_file_name = file_name; };
     ~TuringMachine() { 
         m_transition_function.clear();
-        std::cout << "\x1B[?25h\n";
+        std::cout << "\n Input tape=";
+        for (char c : m_input_tape)
+            std::cout << c;
+        std::cout << "\nOutput tape=";
+        for (char c : m_tape)
+            std::cout << c;
+        std::cout << "\x1B[?25h\n\n";
     };
 
     void transition_from_stringstream(std::string);
