@@ -73,8 +73,6 @@ V_TRANSITION TuringMachine::get_transition() {
     try {
         V_TRANSITION transition = m_transition_function.at(k_transition);
         std::string s = std::get<2>(transition);
-        //if (s.size() > 3 && s.substr(0,4) == "halt")
-        //    m_running = false;
         return transition;
     } catch (std::out_of_range const&) {
         return std::make_tuple('.', '.', "halt");
@@ -119,7 +117,6 @@ void TuringMachine::display_tape() {
 }
 
 void TuringMachine::display_info() {
-    // clear line, start, print 1 line, clear, print 1 line, go up 2
     V_TRANSITION v_transition = get_transition();
     std::cout << "\x1B[3A";
     std::cout << "\x1B[0G\e[K";
@@ -134,9 +131,7 @@ void TuringMachine::display_info() {
 
 void TuringMachine::step() {
     get_tape_symbol();
-    //std::cout << "State=" << m_current_state << ", Symbol=" << m_current_symbol << ", Transition=";
     V_TRANSITION v_transition = get_transition();
-    //print_tuple(v_transition);
     display_info();
     char write_symbol = std::get<0>(v_transition);
     char direction = std::get<1>(v_transition);
@@ -147,9 +142,10 @@ void TuringMachine::step() {
     }
     write_tape(write_symbol);
     move_tape_head(direction);
+    std::cout << "\x1B[?25l";
 }
 
-void TuringMachine::run() {
+void TuringMachine::run(bool run_type) {
     read_transition_function();
     get_tape_symbol();
     m_running = true;
@@ -158,6 +154,7 @@ void TuringMachine::run() {
         step();
         if (!m_running)
             break;
-        getchar();
+        if (!run_type)
+            getchar();
     } display_info();
 }

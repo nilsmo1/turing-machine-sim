@@ -1,5 +1,6 @@
 #pragma once
 
+#include <iostream>
 #include <map>
 #include <vector>
 #include <tuple>
@@ -22,7 +23,10 @@ private:
 
 public:
     TuringMachine(std::string file_name) { m_file_name = file_name; };
-    ~TuringMachine() { m_transition_function.clear(); };
+    ~TuringMachine() { 
+        m_transition_function.clear();
+        std::cout << "\x1B[?25h";
+    };
 
     void transition_from_stringstream(std::string);
     void read_transition_function();
@@ -34,6 +38,6 @@ public:
     void display_tape();
     void display_info();
     void step();
-    void run();
+    void run(bool);
 
 };
